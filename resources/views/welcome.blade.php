@@ -173,7 +173,7 @@
             <div class="container section-title" data-aos="fade-up">
                 <span>Kontak</span>
                 <h2>Kontak</h2>
-                <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+                <p>Hubungi saya untuk pertanyaan lebih lanjut atau informasi lainnya</p>
             </div><!-- End Section Title -->
 
             <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -242,7 +242,7 @@
 
     <footer id="footer" class="footer">
 
-        <div class="container copyright text-center mt-4">
+        {{-- <div class="container copyright text-center mt-4">
             <p>© <span>Copyright</span> <strong class="px-1 sitename">eNno</strong> <span>All Rights Reserved</span>
             </p>
             <div class="credits">
@@ -253,7 +253,7 @@
                 Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed by <a
                     href=“https://themewagon.com>ThemeWagon
             </div>
-        </div>
+        </div> --}}
 
     </footer>
 
