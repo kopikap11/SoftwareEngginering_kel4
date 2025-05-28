@@ -22,7 +22,16 @@ class TugasController extends Controller
                 'tugas'             => Tugas::with('user')->get(),
             );
             return view('admin/tugas/tugas',$data);
-        }else{
+        }
+         if ($user->jabatan =='manajer'){
+            $data = array(
+                'title'             => 'Data Tugas',
+                'menuAdminTugas'    => 'active',
+                'tugas'             => Tugas::with('user')->get(),
+            );
+            return view('admin/tugas/tugas',$data);
+        }
+        else{
             $data = array(
                 'title'                => 'Data Tugas',
                 'menuKaryawanTugas'    => 'active',
@@ -33,13 +42,17 @@ class TugasController extends Controller
     }
 
     public function create(){
+          $user = Auth::user();
+    if (!in_array($user->jabatan, ['admin', 'manajer'])) {
+        abort(403, 'Hanya admin dan manajer yang boleh menambah tugas.');
+    }else{
         $data = array(
             'title'             => 'Tambah Data Tugas',
             'menuAdminTugas'    => 'active',
             'user'              => User::where('jabatan','karyawan')->where('is_tugas',false)->get(),
         );
-        return view('admin/tugas/create', $data);
-
+        return view('admin.tugas.create', $data);
+    }
     }
 
     public function store(Request $request){
@@ -120,6 +133,16 @@ class TugasController extends Controller
     $filename = now()->format('d-m-Y_H.i.s');
 
     if ($user->jabatan == 'admin') {
+        $data = [
+            'tugas'   => Tugas::with('user')->get(),
+            'tanggal' => now()->format('d-m-Y'),
+            'jam'     => now()->format('H.i.s'),
+        ];
+
+        $pdf = Pdf::loadView('admin/tugas/pdf', $data);
+        return $pdf->setPaper('a4', 'landscape')->download('DataTugas_' . $filename . '.pdf');
+    }
+    if ($user->jabatan == 'manajer') {
         $data = [
             'tugas'   => Tugas::with('user')->get(),
             'tanggal' => now()->format('d-m-Y'),

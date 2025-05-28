@@ -41,6 +41,41 @@
             @endforeach
         @endif
 
+        @if (auth()->user()->jabatan == 'manajer')
+            @php
+                $cards = [
+                    ['label' => 'Total User', 'value' => $jumlahUser, 'icon' => 'fa-users', 'bg' => '#A1887F', 'accent' => '#D7CCC8'],
+                    ['label' => 'Total Admin', 'value' => $jumlahAdmin, 'icon' => 'fa-user-shield', 'bg' => '#6D4C41', 'accent' => '#BCAAA4'],
+                    ['label' => 'Total Karyawan', 'value' => $jumlahKaryawan, 'icon' => 'fa-user-tie', 'bg' => '#8D6E63', 'accent' => '#D7CCC8'],
+                    ['label' => 'Yang Ditugaskan', 'value' => $jumlahDitugaskan, 'icon' => 'fa-tasks', 'bg' => '#4E342E', 'accent' => '#EFEBE9'],
+                ];
+            @endphp
+
+            @foreach ($cards as $card)
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card h-100 shadow-sm" style="
+                        background-color: {{ $card['bg'] }};
+                        color: white;
+                        border-radius: 25px;
+                        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+                        transition: transform 0.3s ease;
+                    " onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <div class="mb-3">
+                                <i class="fas {{ $card['icon'] }} fa-2x mb-2" style="color: {{ $card['accent'] }};"></i>
+                                <div class="text-uppercase font-weight-bold" style="font-size: 0.85rem;">
+                                    {{ $card['label'] }}
+                                </div>
+                            </div>
+                            <div class="h4 font-weight-bold text-right" style="color: {{ $card['accent'] }};">
+                                {{ $card['value'] }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        @endif
+
         @if (auth()->user()->jabatan == 'karyawan')
             @php
                 $isTugas = auth()->user()->is_tugas;

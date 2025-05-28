@@ -2,6 +2,7 @@
 
 use App\Http\Middleware\isAdmin;
 use App\Http\Middleware\isLogin;
+use App\Http\Middleware\isManajer;
 use App\Http\Middleware\checkLogin;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -17,7 +18,8 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'checkLogin' => checkLogin::class,
             'isAdmin'    => isAdmin::class,
-            'isLogin'    => isLogin::class
+            'isLogin'    => isLogin::class,
+            'isManajer'    => isManajer::class
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

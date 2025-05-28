@@ -74,6 +74,18 @@
                 <span>Data Tugas</span></a>
         </li>
 
+        @elseif (auth()->user()->jabatan == 'manajer')
+        <!-- Heading -->
+        <div class="sidebar-heading">Menu Manajer</div>
+
+
+        <!-- Nav Item - Data Tugas -->
+        <li class="nav-item {{ $menuAdminTugas ?? '' }}">
+            <a class="nav-link" href="{{ route('tugas') }}">
+                <i class="fas fa-tasks"></i>
+                <span>Data Tugas</span></a>
+        </li>
+
     @else
         <!-- Heading -->
         <div class="sidebar-heading">Menu Karyawan</div>

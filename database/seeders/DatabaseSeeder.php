@@ -17,35 +17,43 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         User::create([
-            'nama'      => 'Aldi IT',
-            'email'     => 'admin@gmail.com',
-            'jabatan'   => 'Admin',
-            'password'  => Hash::make('123123123'),
-            'is_tugas'  => false,
+            'nama' => 'Aldi IT',
+            'email' => 'admin@gmail.com',
+            'jabatan' => 'Admin',
+            'password' => Hash::make('123123123'),
+            'is_tugas' => false,
         ]);
 
         User::create([
-            'nama'      => 'Anas',
-            'email'     => 'anas@gmail.com',
-            'jabatan'   => 'Karyawan',
-            'password'  => Hash::make('123123123'),
-            'is_tugas'  => false,
+            'nama' => 'dani',
+            'email' => 'danimg@mail.com',
+            'jabatan' => 'Manajer',
+            'password' => Hash::make('12341234'),
+            'is_tugas' => false,
         ]);
 
         User::create([
-            'nama'      => 'miksu',
-            'email'     => 'miksu@gmail.com',
-            'jabatan'   => 'Karyawan',
-            'password'  => Hash::make('123123123'),
-            'is_tugas'  => false,
+            'nama' => 'Anas',
+            'email' => 'anas@gmail.com',
+            'jabatan' => 'Karyawan',
+            'password' => Hash::make('123123123'),
+            'is_tugas' => false,
         ]);
 
         User::create([
-            'nama'      => 'Budi',
-            'email'     => 'budi@gmail.com',
-            'jabatan'   => 'Karyawan',
-            'password'  => Hash::make('123123123'),
-            'is_tugas'  => false,
+            'nama' => 'miksu',
+            'email' => 'miksu@gmail.com',
+            'jabatan' => 'Karyawan',
+            'password' => Hash::make('123123123'),
+            'is_tugas' => false,
+        ]);
+
+        User::create([
+            'nama' => 'Budi',
+            'email' => 'budi@gmail.com',
+            'jabatan' => 'Karyawan',
+            'password' => Hash::make('123123123'),
+            'is_tugas' => false,
         ]);
     }
 }

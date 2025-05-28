@@ -115,6 +115,7 @@
                     <select name="jabatan" class="form-control @error('jabatan') is-invalid @enderror">
                         <option selected disabled>~~ Pilih Jabatan ~~</option>
                         <option value="Karyawan">Karyawan</option>
+                        <option value="Manajer">Manajer</option>
                         <option value="Admin">Admin</option>
                     </select>
                     @error('jabatan') <small class="text-danger">{{ $message }}</small> @enderror
