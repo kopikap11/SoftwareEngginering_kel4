@@ -26,6 +26,8 @@ Route::middleware('checkLogin')->group(function(){
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     // tugas
     Route::get('tugas', [TugasController::class, 'index'])->name('tugas');
+    Route::get('tugas/create', [TugasController::class, 'create'])->name('tugasCreate');
+    Route::post('tugas/store', [TugasController::class, 'store'])->name('tugasStore');
      // tugas pdf
      Route::get('tugas/pdf', [TugasController::class, 'pdf'])->name('tugasPdf');
 
@@ -56,10 +58,8 @@ Route::middleware('isAdmin')->group(function () {
 
 
         // tugas tambah
-        Route::get('tugas/create', [TugasController::class, 'create'])->name('tugasCreate');
 
         // tugas kirim
-        Route::post('tugas/store', [TugasController::class, 'store'])->name('tugasStore');
 
         // tugas edit
         Route::get('tugas/edit/{id}', [TugasController::class, 'edit'])->name('tugasEdit');
